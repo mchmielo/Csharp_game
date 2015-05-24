@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_9C7B39_mchmielokredek" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SQL5003.Smarterasp.net;Initial Catalog=DB_9C7B39_mchmielokredek;Persist Security Info=True;User ID=DB_9C7B39_mchmielokredek_admin" SettingsObjectName="MateuszChmielowskiLab4ZadDom.Properties.Settings" SettingsPropertyName="DB_9C7B39_mchmielokredekConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Car" Member="Cars">
+    <Type Name="Car">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mark" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MaxSpeed" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MaxLoad" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(11,2) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLongitude" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="FuelTankCapacity" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Icon" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Car_PlayerStatus" Member="PlayerStatus" ThisKey="ID" OtherKey="CurrentCarID" Type="PlayerStatus" />
+      <Association Name="Car_DealersCar" Member="DealersCars" ThisKey="ID" OtherKey="CarID" Type="DealersCar" />
+      <Association Name="Car_PlayerCar" Member="PlayerCars" ThisKey="ID" OtherKey="CarID" Type="PlayerCar" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Quest" Member="Quests">
+    <Type Name="Quest">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GPSFromLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSFromLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSToLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSToLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="MaxEndTime" Type="System.Decimal" DbType="Decimal(6,1) NOT NULL" CanBeNull="false" />
+      <Column Name="Reward" Type="System.Decimal" DbType="Decimal(11,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Quest_PlayerQuest" Member="PlayerQuests" ThisKey="ID" OtherKey="QuestID" Type="PlayerQuest" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarDealer" Member="CarDealers">
+    <Type Name="CarDealer">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="ProfitMargin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarDealer_DealersCar" Member="DealersCars" ThisKey="ID" OtherKey="DealerID" Type="DealersCar" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Garage" Member="Garages">
+    <Type Name="Garage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_Garage" Member="Player" ThisKey="PlayerID" OtherKey="ID" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GasStation" Member="GasStations">
+    <Type Name="GasStation">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(4,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Player" Member="Players">
+    <Type Name="Player">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Player_Garage" Member="Garages" ThisKey="ID" OtherKey="PlayerID" Type="Garage" />
+      <Association Name="Player_PlayerStatus" Member="PlayerStatus" ThisKey="ID" OtherKey="PlayerID" Type="PlayerStatus" />
+      <Association Name="Player_PlayerQuest" Member="PlayerQuests" ThisKey="ID" OtherKey="PlayerID" Type="PlayerQuest" />
+      <Association Name="Player_PlayerCar" Member="PlayerCars" ThisKey="ID" OtherKey="PlayerID" Type="PlayerCar" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlayerStatus" Member="PlayerStatus">
+    <Type Name="PlayerStatus">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsOnline" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLatitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="GPSLongitude" Type="System.Decimal" DbType="Decimal(10,7) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentGold" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentCarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Car_PlayerStatus" Member="Car" ThisKey="CurrentCarID" OtherKey="ID" Type="Car" IsForeignKey="true" />
+      <Association Name="Player_PlayerStatus" Member="Player" ThisKey="PlayerID" OtherKey="ID" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DealersCars" Member="DealersCars">
+    <Type Name="DealersCar">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DealerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FuelLevel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Car_DealersCar" Member="Car" ThisKey="CarID" OtherKey="ID" Type="Car" IsForeignKey="true" />
+      <Association Name="CarDealer_DealersCar" Member="CarDealer" ThisKey="DealerID" OtherKey="ID" Type="CarDealer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlayerQuest" Member="PlayerQuests">
+    <Type Name="PlayerQuest">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Player_PlayerQuest" Member="Player" ThisKey="PlayerID" OtherKey="ID" Type="Player" IsForeignKey="true" />
+      <Association Name="Quest_PlayerQuest" Member="Quest" ThisKey="QuestID" OtherKey="ID" Type="Quest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlayerCar" Member="PlayerCars">
+    <Type Name="PlayerCar">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Roadworthy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FuelLevel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Car_PlayerCar" Member="Car" ThisKey="CarID" OtherKey="ID" Type="Car" IsForeignKey="true" />
+      <Association Name="Player_PlayerCar" Member="Player" ThisKey="PlayerID" OtherKey="ID" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
