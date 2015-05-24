@@ -24,7 +24,8 @@ namespace MateuszChmielowskiLab4ZadDom.Model
 
         public static PlayerStatus GetPlayerStatusByPlayerID(int playerID)
         {
-            return (from playerStatus in DatabaseContext.dataContext.PlayerStatus select playerStatus).Where(x => x.ID == playerID).First();
+            var query = from playerStatus in DatabaseContext.dataContext.PlayerStatus select playerStatus;
+            return query.Where(x => x.PlayerID == playerID).First();
         }
     }
 }

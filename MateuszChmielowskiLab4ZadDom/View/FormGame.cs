@@ -24,13 +24,14 @@ namespace MateuszChmielowskiLab4ZadDom
 
         public FormGame(Player player)
         {
-            InitializeMap();
+            InitializeComponent();
             currentPlayer = player;
+            InitializeMap();
         }
 
         private void InitializeMap()
         {
-            InitializeComponent();
+            
             try
             {
                 System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry("www.google.com");
