@@ -416,6 +416,7 @@ namespace MateuszChmielowskiLab4ZadDom
         private void FormGame_FormClosed(object sender, FormClosedEventArgs e)
         {
             PlayerStatus.SetPlayerOnline(currentPlayer.ID, false);
+            DatabaseContext.dataContext.SubmitChanges();
         }
         /// <summary>
         /// Zatrzymanie timera i oczekiwanie na zakończenie wszystkich funkcji Invoke.
