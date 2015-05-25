@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace MateuszChmielowskiLab4ZadDom.Model
 {
+    /// <summary>
+    /// Klasa utworzona po to aby mieć jeden kontekst bazy danych.
+    /// </summary>
     public static class DatabaseContext
     {
+        /// <summary>
+        /// Kontekst bazy danych.
+        /// </summary>
         public static DataClassesDataContext dataContext;
         static DatabaseContext()
         {

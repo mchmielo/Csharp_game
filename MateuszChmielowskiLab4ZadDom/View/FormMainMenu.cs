@@ -18,14 +18,47 @@ namespace MateuszChmielowskiLab4ZadDom
         {
             InitializeComponent();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Po zamknięciu okna z grą otwierane jest menu główne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormGame_Closed(object sender, FormClosedEventArgs e)
         {
-            if(string.IsNullOrEmpty(textBoxLogin.Text) || string.IsNullOrEmpty(textBoxPassword.Text))
+            this.Show();
+        }
+        /// <summary>
+        /// Utworzenie okna do tworzenia nowego gracza.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonNewPlayer_Click(object sender, EventArgs e)
+        {
+            FormNewPlayer formNewPlayer = new FormNewPlayer();
+            formNewPlayer.ShowDialog();
+        }
+        /// <summary>
+        /// Zamknięcie programu po wciśnięciu przycisku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /// <summary>
+        /// Logowanie do gry. Jeśli podano prawidłowy login i hasło i gra nie jest już gdzieś indziej otwarta,
+        /// to zostaje utworzone okno z grą. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxLogin.Text) || string.IsNullOrEmpty(textBoxPassword.Text))
                 MessageBox.Show("Należy wypełnić oba pola.");
             else
             {
-                if(Player.CheckLogin(textBoxLogin.Text, MainController.CalculateMD5Hash(textBoxPassword.Text)))
+                if (Player.CheckLogin(textBoxLogin.Text, MainController.CalculateMD5Hash(textBoxPassword.Text)))
                 {
                     if (Player.IsOnline(textBoxLogin.Text))
                     {
@@ -44,22 +77,6 @@ namespace MateuszChmielowskiLab4ZadDom
                 else
                     MessageBox.Show("Niepoprawny login lub hasło.");
             }
-        }
-
-        private void FormGame_Closed(object sender, FormClosedEventArgs e)
-        {
-            this.Show();
-        }
-
-        private void buttonNewPlayer_Click(object sender, EventArgs e)
-        {
-            FormNewPlayer formNewPlayer = new FormNewPlayer();
-            formNewPlayer.ShowDialog();
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -117,10 +117,10 @@
             this.pictureBoxPlayerCar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxPlayerCar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxPlayerCar.Image = global::MateuszChmielowskiLab4ZadDom.Properties.Resources.Truck1;
-            this.pictureBoxPlayerCar.Location = new System.Drawing.Point(461, 282);
+            this.pictureBoxPlayerCar.Location = new System.Drawing.Point(475, 282);
             this.pictureBoxPlayerCar.Name = "pictureBoxPlayerCar";
-            this.pictureBoxPlayerCar.Size = new System.Drawing.Size(50, 50);
-            this.pictureBoxPlayerCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPlayerCar.Size = new System.Drawing.Size(22, 50);
+            this.pictureBoxPlayerCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerCar.TabIndex = 2;
             this.pictureBoxPlayerCar.TabStop = false;
             // 

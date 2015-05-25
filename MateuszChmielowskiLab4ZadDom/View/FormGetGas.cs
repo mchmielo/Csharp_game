@@ -13,14 +13,22 @@ namespace MateuszChmielowskiLab4ZadDom.View
 {
     public partial class FormGetGas : Form
     {
+        /// <summary>
+        /// Pola klasy.
+        /// </summary>
         private Car car;
         private PlayerCar playerCar;
         private PlayerStatus playerStatus;
         private GasStation gasStation;
-
+        /// <summary>
+        /// Konstruktor na podstawie otrzymanych wartości ID, wyciąga z bazy potrzebne rekordy. Na ich
+        /// podstawie aktualizuje wartości kontrolek.
+        /// </summary>
+        /// <param name="playerCarID"></param>
+        /// <param name="playerID"></param>
+        /// <param name="gasStationID"></param>
         public FormGetGas(int playerCarID, int playerID, int gasStationID)
         {
-            
             InitializeComponent();
 
             car = Car.GetCarByID(playerCarID);
@@ -35,17 +43,29 @@ namespace MateuszChmielowskiLab4ZadDom.View
             textBoxToPay.Text = (maxFuelLevel * gasStation.Price).ToString();
             labelStationName.Text = gasStation.Name;
         }
-
+        /// <summary>
+        /// Funkcja zmienia wartość do zapłaty.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trackBarFuelAmount_Scroll(object sender, EventArgs e)
         {
             textBoxToPay.Text = (trackBarFuelAmount.Value * gasStation.Price).ToString();
         }
-
+        /// <summary>
+        /// Zamknięcie okna.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Akceptacja kwoty, aktualizacja rekordów i zamknięcie okna.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonApply_Click(object sender, EventArgs e)
         {
             playerCar.FuelLevel += (trackBarFuelAmount.Value/car.FuelTankCapacity)*100;

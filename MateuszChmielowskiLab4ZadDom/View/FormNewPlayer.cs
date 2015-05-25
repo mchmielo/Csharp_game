@@ -18,8 +18,14 @@ namespace MateuszChmielowskiLab4ZadDom
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Akcja przy zaakceptowaniu nowego gracza. Funkcja sprawdza czy pola zostały wypełnione,
+        /// czy login nie jest już zajęty oraz czy w obu polach hasło jest takie samo. Poza utworzeniem
+        /// gracza, zostaje również utworzony PlayerStatus i PlayerCar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCreatePlayer_Click(object sender, EventArgs e)
         {
             bool error = false;
             if (!Player.IsLoginAvailable(textBoxLogin.Text))

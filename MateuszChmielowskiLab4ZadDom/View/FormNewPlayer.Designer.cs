@@ -69,7 +69,7 @@
             this.buttonCreatePlayer.TabIndex = 3;
             this.buttonCreatePlayer.Text = "Utwórz konto";
             this.buttonCreatePlayer.UseVisualStyleBackColor = true;
-            this.buttonCreatePlayer.Click += new System.EventHandler(this.button1_Click);
+            this.buttonCreatePlayer.Click += new System.EventHandler(this.buttonCreatePlayer_Click);
             // 
             // textBoxPassword
             // 
@@ -113,9 +113,9 @@
             this.labelRepeatPassword.Location = new System.Drawing.Point(133, 199);
             this.labelRepeatPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRepeatPassword.Name = "labelRepeatPassword";
-            this.labelRepeatPassword.Size = new System.Drawing.Size(38, 16);
+            this.labelRepeatPassword.Size = new System.Drawing.Size(77, 16);
             this.labelRepeatPassword.TabIndex = 0;
-            this.labelRepeatPassword.Text = "Hasło:";
+            this.labelRepeatPassword.Text = "Powtórz hasło:";
             // 
             // textBoxRepeatPassword
             // 

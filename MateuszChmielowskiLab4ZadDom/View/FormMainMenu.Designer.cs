@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonNewPlayer = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelLogin = new System.Windows.Forms.Label();
@@ -52,17 +52,17 @@
             this.buttonNewPlayer.UseVisualStyleBackColor = true;
             this.buttonNewPlayer.Click += new System.EventHandler(this.buttonNewPlayer_Click);
             // 
-            // button2
+            // buttonLogin
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(340, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(269, 60);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Zaloguj się";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLogin.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.Location = new System.Drawing.Point(340, 221);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(269, 60);
+            this.buttonLogin.TabIndex = 3;
+            this.buttonLogin.Text = "Zaloguj się";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // textBoxLogin
             // 
@@ -137,7 +137,7 @@
             this.panel1.Controls.Add(this.labelNewPlayer);
             this.panel1.Controls.Add(this.labelPassword);
             this.panel1.Controls.Add(this.buttonNewPlayer);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.buttonLogin);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.labelLogin);
             this.panel1.Location = new System.Drawing.Point(12, 12);
@@ -163,7 +163,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNewPlayer;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelLogin;

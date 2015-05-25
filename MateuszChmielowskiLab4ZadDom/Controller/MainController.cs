@@ -10,20 +10,33 @@ namespace MateuszChmielowskiLab4ZadDom.Controller
 {
     public static class MainController
     {
-
+        /// <summary>
+        /// Funkcja zwraca losową szerokość geograficzną w okolicach Wrocławia.
+        /// </summary>
+        /// <returns></returns>
         public static decimal RandomLatitude()
         {
             Random random = new Random();
             return decimal.Parse((random.Next(510409621, 511621218) / 10000000.0).ToString());
         }
-
+        /// <summary>
+        /// Funkcja zwraca losową długość geograficzną w okolicach Wrocławia.
+        /// </summary>
+        /// <returns></returns>
         public static decimal RandomLongitude()
         {
             Random random = new Random();
             return decimal.Parse((random.Next(1686573028, 1714914321) / 100000000.0).ToString());
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Funkcja służy do szyfrowania algorytmem md5.
+        /// </summary>
+        /// <param name="input">
+        /// String do szyfrowania.</param>
+        /// <returns>
+        /// Zaszyfrowany string.
+        /// </returns>
         public static string CalculateMD5Hash(string input)
         {
             MD5 md5 = MD5.Create();
@@ -38,7 +51,13 @@ namespace MateuszChmielowskiLab4ZadDom.Controller
             }
             return sb.ToString();
         }
-
+        /// <summary>
+        /// Funkcja przelicza nowy punkt na mapie na podstawie punktu początkowego, kąta i odległości.
+        /// </summary>
+        /// <param name="startingPosition"></param>
+        /// <param name="angle"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
         public static PointLatLng NewPosition(PointLatLng startingPosition, double angle, double distance)
         {
             PointLatLng newPosition = new PointLatLng();
@@ -46,12 +65,22 @@ namespace MateuszChmielowskiLab4ZadDom.Controller
             newPosition.Lng = startingPosition.Lng + distance * Math.Sin(Math.PI * angle / 180.0);
             return newPosition;
         }
-
+        /// <summary>
+        /// Obliczenie dystansu na podstawie dwóch pozycji GPS.
+        /// </summary>
+        /// <param name="startPosition"></param>
+        /// <param name="endPosition"></param>
+        /// <returns></returns>
         public static decimal CalculateDistance(PointLatLng startPosition, PointLatLng endPosition)
         {
             return (decimal)Math.Sqrt(Math.Pow(startPosition.Lat - endPosition.Lat, 2) + Math.Pow(startPosition.Lng - endPosition.Lng, 2));
         }
-
+        /// <summary>
+        /// Obliczenie dystansu w metrach na podstawie dwóch pozycji GPS.
+        /// </summary>
+        /// <param name="startPosition"></param>
+        /// <param name="endPosition"></param>
+        /// <returns></returns>
         public static decimal CalculateDistanceInMetres(PointLatLng startPosition, PointLatLng endPosition)
         {
             const double earthDiameter = 12756.274;

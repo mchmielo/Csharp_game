@@ -27,7 +27,8 @@ namespace MateuszChmielowskiLab4ZadDom.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SQL5003.Smarterasp.net;Initial Catalog=DB_9C7B39_mchmielokredek;Persi" +
-            "st Security Info=True;User ID=DB_9C7B39_mchmielokredek_admin;Password=guen6667")]
+            "st Security Info=True;User ID=DB_9C7B39_mchmielokredek_admin;Password=kredek1234" +
+            "")]
         public string DB_9C7B39_mchmielokredekConnectionString {
             get {
                 return ((string)(this["DB_9C7B39_mchmielokredekConnectionString"]));
