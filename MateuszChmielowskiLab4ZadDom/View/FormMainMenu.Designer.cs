@@ -32,7 +32,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.checkBoxRemember = new System.Windows.Forms.CheckBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelNewPlayer = new System.Windows.Forms.Label();
@@ -57,7 +56,7 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(340, 247);
+            this.button2.Location = new System.Drawing.Point(340, 221);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(269, 60);
             this.button2.TabIndex = 3;
@@ -82,18 +81,6 @@
             this.textBoxPassword.Size = new System.Drawing.Size(269, 20);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
-            // 
-            // checkBoxRemember
-            // 
-            this.checkBoxRemember.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBoxRemember.AutoSize = true;
-            this.checkBoxRemember.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxRemember.Location = new System.Drawing.Point(340, 221);
-            this.checkBoxRemember.Name = "checkBoxRemember";
-            this.checkBoxRemember.Size = new System.Drawing.Size(169, 20);
-            this.checkBoxRemember.TabIndex = 2;
-            this.checkBoxRemember.Text = "Pamiętaj moje dane logowania";
-            this.checkBoxRemember.UseVisualStyleBackColor = true;
             // 
             // labelLogin
             // 
@@ -153,7 +140,6 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.labelLogin);
-            this.panel1.Controls.Add(this.checkBoxRemember);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(924, 552);
@@ -180,7 +166,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.CheckBox checkBoxRemember;
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelNewPlayer;

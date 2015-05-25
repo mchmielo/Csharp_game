@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,16 @@ namespace MateuszChmielowskiLab4ZadDom.Model
         public static bool CheckLogin(string playerLogin, string playerEncryptedPassword)
         {
             if ((from player in DatabaseContext.dataContext.Players select player).Where(x => x.Login == playerLogin && x.Password == playerEncryptedPassword).Count() > 0)
+                return true;
+            return false;
+        }
+
+        public static bool IsOnline(string login)
+        {
+            if ((from player in DatabaseContext.dataContext.Players
+                 from playerStatus in DatabaseContext.dataContext.PlayerStatus
+                 where player.Login.Equals(login) && player.ID == playerStatus.PlayerID && playerStatus.IsOnline
+                 select player).Count() > 0)
                 return true;
             return false;
         }

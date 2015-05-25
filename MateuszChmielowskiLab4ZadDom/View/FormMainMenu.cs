@@ -27,10 +27,19 @@ namespace MateuszChmielowskiLab4ZadDom
             {
                 if(Player.CheckLogin(textBoxLogin.Text, MainController.CalculateMD5Hash(textBoxPassword.Text)))
                 {
-                    FormGame formGame = new FormGame(Player.GetPLayerByLogin(textBoxLogin.Text));
-                    formGame.FormClosed += new FormClosedEventHandler(FormGame_Closed);
-                    formGame.Show();
-                    this.Hide();
+                    if (Player.IsOnline(textBoxLogin.Text))
+                    {
+                        MessageBox.Show("Gracz jest już zalogowany na innym urządzeniu.");
+                    }
+                    else
+                    {
+                        Player player = Player.GetPLayerByLogin(textBoxLogin.Text);
+                        PlayerStatus.SetPlayerOnline(player.ID, true);
+                        FormGame formGame = new FormGame(player);
+                        formGame.FormClosed += new FormClosedEventHandler(FormGame_Closed);
+                        formGame.Show();
+                        this.Hide();
+                    }
                 }
                 else
                     MessageBox.Show("Niepoprawny login lub hasło.");

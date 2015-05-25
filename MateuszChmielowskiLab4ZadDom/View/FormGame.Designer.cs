@@ -31,9 +31,16 @@
             this.mainMap = new GMap.NET.WindowsForms.GMapControl();
             this.labelPlayerMoney = new System.Windows.Forms.Label();
             this.labelPlayerFuel = new System.Windows.Forms.Label();
-            this.pictureBoxFuel = new System.Windows.Forms.PictureBox();
+            this.progressBarFuelLevel = new System.Windows.Forms.ProgressBar();
+            this.labelSpeed = new System.Windows.Forms.Label();
+            this.pictureBoxPlayerCar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSpeedmeter = new System.Windows.Forms.PictureBox();
+            this.pictureFuel = new System.Windows.Forms.PictureBox();
             this.pictureBoxCoin = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFuel)).BeginInit();
+            this.labelQuestTimer = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpeedmeter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFuel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +68,7 @@
             this.mainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.mainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.mainMap.ShowTileGridLines = false;
-            this.mainMap.Size = new System.Drawing.Size(897, 479);
+            this.mainMap.Size = new System.Drawing.Size(948, 479);
             this.mainMap.TabIndex = 0;
             this.mainMap.Zoom = 0D;
             // 
@@ -79,21 +86,63 @@
             // 
             this.labelPlayerFuel.AutoSize = true;
             this.labelPlayerFuel.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelPlayerFuel.Location = new System.Drawing.Point(353, 25);
+            this.labelPlayerFuel.Location = new System.Drawing.Point(510, 25);
             this.labelPlayerFuel.Name = "labelPlayerFuel";
             this.labelPlayerFuel.Size = new System.Drawing.Size(52, 23);
             this.labelPlayerFuel.TabIndex = 1;
             this.labelPlayerFuel.Text = "label1";
             // 
-            // pictureBoxFuel
+            // progressBarFuelLevel
             // 
-            this.pictureBoxFuel.Image = global::MateuszChmielowskiLab4ZadDom.Properties.Resources.fuelGreen;
-            this.pictureBoxFuel.Location = new System.Drawing.Point(297, 12);
-            this.pictureBoxFuel.Name = "pictureBoxFuel";
-            this.pictureBoxFuel.Size = new System.Drawing.Size(50, 50);
-            this.pictureBoxFuel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFuel.TabIndex = 2;
-            this.pictureBoxFuel.TabStop = false;
+            this.progressBarFuelLevel.Location = new System.Drawing.Point(255, 25);
+            this.progressBarFuelLevel.Name = "progressBarFuelLevel";
+            this.progressBarFuelLevel.Size = new System.Drawing.Size(249, 23);
+            this.progressBarFuelLevel.Step = 1;
+            this.progressBarFuelLevel.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarFuelLevel.TabIndex = 3;
+            this.progressBarFuelLevel.Value = 100;
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelSpeed.Location = new System.Drawing.Point(667, 25);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.Size = new System.Drawing.Size(52, 23);
+            this.labelSpeed.TabIndex = 1;
+            this.labelSpeed.Text = "label1";
+            // 
+            // pictureBoxPlayerCar
+            // 
+            this.pictureBoxPlayerCar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxPlayerCar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPlayerCar.Image = global::MateuszChmielowskiLab4ZadDom.Properties.Resources.Truck1;
+            this.pictureBoxPlayerCar.Location = new System.Drawing.Point(461, 282);
+            this.pictureBoxPlayerCar.Name = "pictureBoxPlayerCar";
+            this.pictureBoxPlayerCar.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxPlayerCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPlayerCar.TabIndex = 2;
+            this.pictureBoxPlayerCar.TabStop = false;
+            // 
+            // pictureBoxSpeedmeter
+            // 
+            this.pictureBoxSpeedmeter.Image = global::MateuszChmielowskiLab4ZadDom.Properties.Resources.speedmeter;
+            this.pictureBoxSpeedmeter.Location = new System.Drawing.Point(611, 12);
+            this.pictureBoxSpeedmeter.Name = "pictureBoxSpeedmeter";
+            this.pictureBoxSpeedmeter.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxSpeedmeter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSpeedmeter.TabIndex = 2;
+            this.pictureBoxSpeedmeter.TabStop = false;
+            // 
+            // pictureFuel
+            // 
+            this.pictureFuel.Image = global::MateuszChmielowskiLab4ZadDom.Properties.Resources.fuelGreen;
+            this.pictureFuel.Location = new System.Drawing.Point(199, 12);
+            this.pictureFuel.Name = "pictureFuel";
+            this.pictureFuel.Size = new System.Drawing.Size(50, 50);
+            this.pictureFuel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureFuel.TabIndex = 2;
+            this.pictureFuel.TabStop = false;
             // 
             // pictureBoxCoin
             // 
@@ -105,19 +154,44 @@
             this.pictureBoxCoin.TabIndex = 2;
             this.pictureBoxCoin.TabStop = false;
             // 
+            // labelQuestTimer
+            // 
+            this.labelQuestTimer.AutoSize = true;
+            this.labelQuestTimer.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelQuestTimer.Location = new System.Drawing.Point(821, 19);
+            this.labelQuestTimer.Name = "labelQuestTimer";
+            this.labelQuestTimer.Size = new System.Drawing.Size(72, 31);
+            this.labelQuestTimer.TabIndex = 1;
+            this.labelQuestTimer.Text = "label1";
+            this.labelQuestTimer.Visible = false;
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(972, 559);
-            this.Controls.Add(this.pictureBoxFuel);
+            this.Controls.Add(this.progressBarFuelLevel);
+            this.Controls.Add(this.pictureBoxPlayerCar);
+            this.Controls.Add(this.pictureBoxSpeedmeter);
+            this.Controls.Add(this.pictureFuel);
             this.Controls.Add(this.pictureBoxCoin);
+            this.Controls.Add(this.labelQuestTimer);
+            this.Controls.Add(this.labelSpeed);
             this.Controls.Add(this.labelPlayerFuel);
             this.Controls.Add(this.labelPlayerMoney);
             this.Controls.Add(this.mainMap);
+            this.KeyPreview = true;
             this.Name = "FormGame";
             this.Text = "FormGame";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFuel)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormGame_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGame_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormGame_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormGame_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpeedmeter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFuel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,7 +203,12 @@
         private GMap.NET.WindowsForms.GMapControl mainMap;
         private System.Windows.Forms.Label labelPlayerMoney;
         private System.Windows.Forms.PictureBox pictureBoxCoin;
-        private System.Windows.Forms.PictureBox pictureBoxFuel;
         private System.Windows.Forms.Label labelPlayerFuel;
+        private System.Windows.Forms.PictureBox pictureFuel;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerCar;
+        private System.Windows.Forms.ProgressBar progressBarFuelLevel;
+        private System.Windows.Forms.PictureBox pictureBoxSpeedmeter;
+        private System.Windows.Forms.Label labelSpeed;
+        private System.Windows.Forms.Label labelQuestTimer;
     }
 }

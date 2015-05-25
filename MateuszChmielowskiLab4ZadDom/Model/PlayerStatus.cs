@@ -1,4 +1,5 @@
-﻿using MateuszChmielowskiLab4ZadDom.Controller;
+﻿using GMap.NET;
+using MateuszChmielowskiLab4ZadDom.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,21 @@ namespace MateuszChmielowskiLab4ZadDom.Model
         {
             var query = from playerStatus in DatabaseContext.dataContext.PlayerStatus select playerStatus;
             return query.Where(x => x.PlayerID == playerID).First();
+        }
+
+        public static void UpdatePlayerStatus(int playerID, PointLatLng position)
+        {
+            PlayerStatus statusOfPlayer = (from playerStatus in DatabaseContext.dataContext.PlayerStatus select playerStatus).Where(x => x.PlayerID == playerID).First();
+            statusOfPlayer.GPSLatitude = (decimal)position.Lat;
+            statusOfPlayer.GPSLongitude = (decimal)position.Lng;
+            DatabaseContext.dataContext.SubmitChanges();
+        }
+
+        internal static void SetPlayerOnline(int playerID, bool online)
+        {
+            PlayerStatus statusOfPlayer = (from playerStatus in DatabaseContext.dataContext.PlayerStatus select playerStatus).Where(x => x.PlayerID == playerID).First();
+            statusOfPlayer.IsOnline = online;
+            DatabaseContext.dataContext.SubmitChanges();
         }
     }
 }

@@ -12,5 +12,10 @@ namespace MateuszChmielowskiLab4ZadDom.Model
         {
             return (from gasStation in DatabaseContext.dataContext.GasStations select gasStation).ToList();
         }
+
+        public static GasStation GetGasStationByID(int id)
+        {
+            return (from gasStation in DatabaseContext.dataContext.GasStations select gasStation).Where(x => x.ID == id).First();
+        }
     }
 }

@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
+    <Compile Include="Model\PlayerQuest.cs" />
+    <Compile Include="Model\Quest.cs" />
     <Compile Include="Model\Car.cs" />
     <Compile Include="Model\CarDealer.cs" />
     <Compile Include="Model\GasStation.cs" />
@@ -68,6 +70,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormGetGas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGetGas.Designer.cs">
+      <DependentUpon>FormGetGas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormMission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMission.Designer.cs">
+      <DependentUpon>FormMission.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormNewPlayer.cs">
       <SubType>Form</SubType>
@@ -91,6 +105,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View\FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormGetGas.resx">
+      <DependentUpon>FormGetGas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMission.resx">
+      <DependentUpon>FormMission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormNewPlayer.resx">
       <DependentUpon>FormNewPlayer.cs</DependentUpon>
@@ -156,6 +176,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Truck1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\speedmeter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\quest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
